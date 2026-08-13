@@ -2,6 +2,7 @@ package com.ara.BookManager.repository;
 
 
 import com.ara.BookManager.model.Book;
+import com.ara.BookManager.model.CreateBook;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @Repository
 public class BookRepo {
+    static int lastId=1;
 
     private List<Book> books=new ArrayList<>();
 
@@ -23,5 +25,11 @@ public class BookRepo {
 
     public Optional<Book> findBookById(int id){
         return books.stream().filter(item->item.id()==id).findFirst();
+    }
+
+    public Book addBook(CreateBook input){
+        var book= Book.fromCreateBook(++lastId,input);
+        books.add(book);
+        return book;
     }
 }

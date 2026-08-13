@@ -32,10 +32,10 @@ public class Books {
 
     @PostMapping("/book")
     public ResponseEntity<Book> addBook(@RequestBody CreateBook book){
-        int bookId=12;
+        Book result=bookRepo.addBook(book);
         return ResponseEntity
-                .created(URI.create("/books/" + bookId))
-                .body(Book.fromCreateBook(bookId,book));
+                .created(URI.create("/books/" + result.id()))
+                .body(result);
     }
 
     @PostMapping("/testDouble")
