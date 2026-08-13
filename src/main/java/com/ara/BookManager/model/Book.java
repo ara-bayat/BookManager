@@ -2,7 +2,10 @@ package com.ara.BookManager.model;
 
 import java.math.BigDecimal;
 
-public record Book(int id, String title, String author,
+import jakarta.validation.constraints.NotEmpty;
+
+public record Book(int id,
+                   @NotEmpty String title, String author,
                    BigDecimal price, String description) {
     public static Book fromCreateBook(int id, CreateBook createBook) {
         return new Book(

@@ -27,9 +27,24 @@ public class BookRepo {
         return books.stream().filter(item->item.id()==id).findFirst();
     }
 
+    public List<Book> getAllBooks(){
+        return books;
+    }
+
     public Book addBook(CreateBook input){
         var book= Book.fromCreateBook(++lastId,input);
         books.add(book);
         return book;
+    }
+
+
+    public Boolean editBook(CreateBook input,int id){
+        return books.stream().filter(item->item.id()==id).findFirst()
+                .map(item->{
+                    books.remove(item);
+                    books.add(Book.fromCreateBook(id,input));
+                    return true;
+                }).orElse(false);
+
     }
 }
