@@ -27,6 +27,16 @@ public class BookRepo {
         return books.stream().filter(item->item.id()==id).findFirst();
     }
 
+    public Boolean deleteBookById(int id){
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).id() == id) {
+                books.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<Book> getAllBooks(){
         return books;
     }
@@ -39,12 +49,13 @@ public class BookRepo {
 
 
     public Boolean editBook(CreateBook input,int id){
-        return books.stream().filter(item->item.id()==id).findFirst()
-                .map(item->{
-                    books.remove(item);
-                    books.add(Book.fromCreateBook(id,input));
-                    return true;
-                }).orElse(false);
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).id() == id) {
+                books.set(i, Book.fromCreateBook(id, input));
+                return true;
+            }
+        }
+        return false;
 
     }
 }

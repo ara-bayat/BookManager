@@ -34,6 +34,16 @@ public class Books {
         return ResponseEntity.of(bookRepo.findBookById(id));
     }
 
+    @DeleteMapping("/books/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable int id){
+        if(bookRepo.deleteBookById(id)){
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/books")
     public ResponseEntity<List<Book>> getAll(){
 //        return bookRepo.findBookById(id)
