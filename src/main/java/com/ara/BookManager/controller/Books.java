@@ -2,6 +2,7 @@ package com.ara.BookManager.controller;
 
 
 import com.ara.BookManager.model.Book;
+import com.ara.BookManager.model.BookRecord;
 import com.ara.BookManager.model.CreateBook;
 import com.ara.BookManager.repository.BookRepo;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,20 +10,17 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 
 @Tag(name = "books")//added for swagger
-@RestController
+//@RestController
 @RequiredArgsConstructor
 public class Books {
 
@@ -32,7 +30,7 @@ public class Books {
     private final BookRepo bookRepo;
 
     @GetMapping("/books/{id}")
-    public ResponseEntity<Book> findById(@PathVariable int id){
+    public ResponseEntity<BookRecord> findById(@PathVariable int id){
 //        return bookRepo.findBookById(id)
 //                .map(ResponseEntity::ok)
 //                .orElse(ResponseEntity.notFound().build());
@@ -51,7 +49,7 @@ public class Books {
     }
 
     @GetMapping("/books")
-    public ResponseEntity<List<Book>> getAll(){
+    public ResponseEntity<List<BookRecord>> getAll(){
 //        return bookRepo.findBookById(id)
 //                .map(ResponseEntity::ok)
 //                .orElse(ResponseEntity.notFound().build());
@@ -65,9 +63,9 @@ public class Books {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201",description = "ایجاد کتاب جدید با موفقیت انجام شد.")
     })
-    public ResponseEntity<Book> addBook(
+    public ResponseEntity<BookRecord> addBook(
            @Valid @RequestBody CreateBook book){
-        Book result=bookRepo.addBook(book);
+        BookRecord result=bookRepo.addBook(book);
         return ResponseEntity
                 .created(URI.create("/books/" + result.id()))
                 .body(result);

@@ -1,19 +1,34 @@
 package com.ara.BookManager.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
-import jakarta.validation.constraints.NotEmpty;
+@Entity
+@Data              // ترکیبی از @Getter, @Setter, @ToString, @EqualsAndHashCode
+@NoArgsConstructor // کانستراکتور بدون پارامتر
+@AllArgsConstructor // کانستراکتور با همه پارامترها
+public class Book {
 
-public record Book(int id,
-                   @NotEmpty String title, String author,
-                   BigDecimal price, String description) {
-    public static Book fromCreateBook(int id, CreateBook createBook) {
-        return new Book(
-                id,
-                createBook.title(),
-                createBook.author(),
-                createBook.price(),
-                createBook.description()
-        );
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @NotEmpty
+    @Column(nullable = false, length = 255)
+    private String title;
+
+    @Column(length = 100)
+    private String author;
+
+    @Column(precision = 19, scale = 2)
+    private BigDecimal price;
+
+    @Column(length = 2000)
+    private String description;
+
 }

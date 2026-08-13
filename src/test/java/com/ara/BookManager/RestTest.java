@@ -1,6 +1,6 @@
 package com.ara.BookManager;
 
-import com.ara.BookManager.model.Book;
+import com.ara.BookManager.model.BookRecord;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.resttestclient.TestRestTemplate;
@@ -17,9 +17,9 @@ public class RestTest {
 
     @Test
     public void testRest(){
-        ResponseEntity<Book> response=testRestTemplate.getForEntity(
+        ResponseEntity<BookRecord> response=testRestTemplate.getForEntity(
                 "/books/1",
-                Book.class
+                BookRecord.class
         );
 
         System.out.println(response.getBody());

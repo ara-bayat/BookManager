@@ -1,0 +1,1 @@
+INSERT INTO BOOK (TITLE,AUTHOR,PRICE,DESCRIPTION) VALUES ('good book','A A Adam',120.2,'Description Test')
