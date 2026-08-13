@@ -3,20 +3,31 @@ package com.ara.BookManager.controller;
 
 import com.ara.BookManager.model.Book;
 import com.ara.BookManager.model.CreateBook;
+import com.ara.BookManager.repository.BookRepo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.net.URI;
+import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class Books {
+
+
+
+
+    private final BookRepo bookRepo;
 
     @GetMapping("/books/{id}")
     public ResponseEntity<Book> findById(@PathVariable int id){
-        Book book = new Book(79,"about something","A A Adam"
-                , BigDecimal.valueOf(50.99),"book description");
-        return ResponseEntity.ok(book);
+//        return bookRepo.findBookById(id)
+//                .map(ResponseEntity::ok)
+//                .orElse(ResponseEntity.notFound().build());
+
+        return ResponseEntity.of(bookRepo.findBookById(id));
     }
 
     @PostMapping("/book")
