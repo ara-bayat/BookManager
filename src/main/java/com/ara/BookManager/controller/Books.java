@@ -4,6 +4,10 @@ package com.ara.BookManager.controller;
 import com.ara.BookManager.model.Book;
 import com.ara.BookManager.model.CreateBook;
 import com.ara.BookManager.repository.BookRepo;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +20,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+
+@Tag(name = "books")//added for swagger
 @RestController
 @RequiredArgsConstructor
 public class Books {
@@ -54,6 +60,11 @@ public class Books {
     }
 
     @PostMapping("/book")
+    @Operation(summary = "این apiجهت اضافه کردن کتاب جدید است",
+    description = "تست description") //added for swagger
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201",description = "ایجاد کتاب جدید با موفقیت انجام شد.")
+    })
     public ResponseEntity<Book> addBook(
            @Valid @RequestBody CreateBook book){
         Book result=bookRepo.addBook(book);
