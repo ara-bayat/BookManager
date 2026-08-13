@@ -10,6 +10,8 @@ import tools.jackson.databind.ObjectMapper;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @JsonTest
@@ -21,7 +23,7 @@ public class BookManagerJsonTest {
     @Test
     void bookSerialization() throws IOException {
         Book book = new Book(79,"about something","A A Adam"
-                ,50.99,"book description");
+                , BigDecimal.valueOf(50.99),"book description");
         assertThat(bookJson.write(book)).
                 isEqualToJson("book.json");
 
