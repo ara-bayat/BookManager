@@ -1,10 +1,14 @@
 package com.ara.BookManager.controller;
 
+import com.ara.BookManager.model.BeanTest;
 import com.ara.BookManager.model.Book;
 import com.ara.BookManager.repository.InMemoryBookRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -15,6 +19,32 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class InMemoryBookController {
     private final InMemoryBookRepository bookRepository;
+
+    private BeanTest beanTest;
+
+    private BeanTest beanTest2;
+
+
+    @Autowired
+    public void setBeanTest(@Qualifier("beanTest") BeanTest beanTest) {
+        this.beanTest = beanTest;
+    }
+
+    @Autowired
+    public void setBeanTest2(@Qualifier("beanTest2") BeanTest beanTest) {
+        this.beanTest2 = beanTest;
+    }
+
+    @GetMapping("/beanTest")
+    public ResponseEntity<BeanTest> beanTest(){
+        return ResponseEntity.ok(beanTest);
+    }
+
+    @GetMapping("/beanTest2")
+    public ResponseEntity<BeanTest> beanTest2(){
+        return ResponseEntity.ok(beanTest2);
+    }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
