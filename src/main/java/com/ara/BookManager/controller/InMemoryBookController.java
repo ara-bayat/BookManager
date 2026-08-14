@@ -3,10 +3,9 @@ package com.ara.BookManager.controller;
 import com.ara.BookManager.model.BeanTest;
 import com.ara.BookManager.model.Book;
 import com.ara.BookManager.repository.InMemoryBookRepository;
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,20 +19,11 @@ import java.util.Optional;
 public class InMemoryBookController {
     private final InMemoryBookRepository bookRepository;
 
-    private BeanTest beanTest;
+    @Resource(name="beanTest")
+    private final BeanTest beanTest;
 
-    private BeanTest beanTest2;
-
-
-    @Autowired
-    public void setBeanTest(@Qualifier("beanTest") BeanTest beanTest) {
-        this.beanTest = beanTest;
-    }
-
-    @Autowired
-    public void setBeanTest2(@Qualifier("beanTest2") BeanTest beanTest) {
-        this.beanTest2 = beanTest;
-    }
+    @Resource(name="beanTest2")
+    private final BeanTest beanTest2;
 
     @GetMapping("/beanTest")
     public ResponseEntity<BeanTest> beanTest(){
