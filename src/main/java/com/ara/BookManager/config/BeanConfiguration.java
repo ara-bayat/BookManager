@@ -1,7 +1,6 @@
 package com.ara.BookManager.config;
 
 import com.ara.BookManager.model.BeanTest;
-import com.ara.BookManager.repository.InMemoryBookRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
