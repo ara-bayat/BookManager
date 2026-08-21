@@ -1,9 +1,7 @@
 package com.ara.BookManager.controller;
 
 import com.ara.BookManager.dtos.BookDto;
-import com.ara.BookManager.model.BookEntity;
-import com.ara.BookManager.repository.BookRepository;
-import com.ara.BookManager.service.BookService;
+import com.ara.BookManager.service.book.BookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

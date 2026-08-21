@@ -1,10 +1,9 @@
 package com.ara.BookManager.controller;
 
 
-import com.ara.BookManager.model.Book;
 import com.ara.BookManager.model.BookRecord;
 import com.ara.BookManager.model.CreateBook;
-import com.ara.BookManager.repository.BookRepo;
+import com.ara.BookManager.repository.book.BookRepo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

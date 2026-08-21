@@ -1,4 +1,4 @@
-package com.ara.BookManager.repository;
+package com.ara.BookManager.repository.book;
 
 
 import com.ara.BookManager.model.BookEntity;

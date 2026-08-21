@@ -1,7 +1,7 @@
-package com.ara.BookManager.service;
+package com.ara.BookManager.service.book;
 
 import com.ara.BookManager.dtos.BookDto;
-import com.ara.BookManager.repository.BookRepository;
+import com.ara.BookManager.repository.book.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

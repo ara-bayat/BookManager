@@ -1,7 +1,6 @@
-package com.ara.BookManager.repository;
+package com.ara.BookManager.repository.book;
 
 
-import com.ara.BookManager.model.Book;
 import com.ara.BookManager.model.BookRecord;
 import com.ara.BookManager.model.CreateBook;
 import jakarta.annotation.PostConstruct;

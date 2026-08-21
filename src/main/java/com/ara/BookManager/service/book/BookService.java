@@ -1,4 +1,4 @@
-package com.ara.BookManager.service;
+package com.ara.BookManager.service.book;
 
 import com.ara.BookManager.dtos.BookDto;
 
