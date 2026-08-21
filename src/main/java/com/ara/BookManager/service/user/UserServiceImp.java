@@ -1,6 +1,5 @@
 package com.ara.BookManager.service.user;
 
-import com.ara.BookManager.dtos.BookDto;
 import com.ara.BookManager.dtos.UserDto;
 import com.ara.BookManager.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;

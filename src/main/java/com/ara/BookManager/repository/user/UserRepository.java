@@ -2,7 +2,6 @@ package com.ara.BookManager.repository.user;
 
 
 import com.ara.BookManager.model.UserEntity;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

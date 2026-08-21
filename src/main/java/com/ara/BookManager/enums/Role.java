@@ -3,7 +3,6 @@ package com.ara.BookManager.enums;
 import com.ara.BookManager.model.SimpleGrantedAuthority;
 import lombok.RequiredArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;

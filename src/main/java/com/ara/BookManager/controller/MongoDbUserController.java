@@ -1,17 +1,13 @@
 package com.ara.BookManager.controller;
 
-import com.ara.BookManager.dtos.BookDto;
 import com.ara.BookManager.dtos.UserDto;
-import com.ara.BookManager.service.book.BookService;
 import com.ara.BookManager.service.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController

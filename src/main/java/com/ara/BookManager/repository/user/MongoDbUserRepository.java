@@ -1,6 +1,5 @@
 package com.ara.BookManager.repository.user;
 
-import com.ara.BookManager.model.BookEntity;
 import com.ara.BookManager.model.UserEntity;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -8,9 +7,7 @@ import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.model.ReturnDocument;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.bson.Document;
 import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
