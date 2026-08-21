@@ -1,6 +1,6 @@
 ### add book bt
 
-POST http://localhost:8080/book
+POST http://localhost:15001/book
 Content-Type: application/json
 
 {
@@ -12,4 +12,17 @@ Content-Type: application/json
 
 ### find book by id
 
-GET http://localhost:8080/books/1
+GET http://localhost:15001/books/1
+
+
+### add book in mongo
+
+POST http://localhost:15001/api/v1/books
+Content-Type: application/json
+
+{
+  "title":"2 کتاب خوب",
+  "author":"بنده خدا",
+  "price":100.01,
+  "description":"یه کتاب"
+}
